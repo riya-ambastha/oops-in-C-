@@ -14,10 +14,11 @@ public:
         *cgpaPtr = cgpa;
     }
 
-    student(student &obj) {
-        this->name = obj.name;
-        this->cgpaPtr = obj.cgpaPtr;
-    }
+    ~student() {
+        cout<<"hi, i delete everything";
+        delete cgpaPtr;
+    }  
+     
 
     void getinfo() {
         cout<<"name:"<<name<<endl;
@@ -27,10 +28,7 @@ public:
 
 int main() {
     student s1("rahul" , 8.9);
-    student s2(s1);
-
-     s1.getinfo();
-     *(s2.cgpaPtr)= 9.2;
-     s1.getinfo();
+    s1.getinfo();
+      
     return 0;
 }
